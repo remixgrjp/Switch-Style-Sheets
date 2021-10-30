@@ -21,6 +21,7 @@ function setThemeSystem(){
 }
 function saveTheme( i ){
 	localStorage.setItem( keySave, i );
+	document.getElementById( keyImg ).src=arrayImg[i];
 }
 function loadTheme(){
 	return +localStorage.getItem( keySave );//''->NaN->0
@@ -54,5 +55,4 @@ function switchTheme(){
 		i = arrayImg.length;
 	}
 	setTheme( --i );
-	document.getElementById( keyImg ).src=arrayImg[i];
 }

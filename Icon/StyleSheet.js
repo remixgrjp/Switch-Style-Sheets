@@ -31,7 +31,7 @@ function deleteTheme(){
 	localStorage.removeItem( keySave );
 }
 
-/** Theme 0:System Config, 1:Lite, 2:Dark */
+/** Theme 2:Dark, 1:Lite, -:System Config */
 function setTheme( i ){
 	switch( i ){
 	  case 2:

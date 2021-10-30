@@ -1,0 +1,14 @@
+@charset "UTF-8";
+body{
+	background-color:#FFF;
+	color:#333;
+}
+a{
+	color:#00F;
+}
+a:visited{
+	color:#009;
+}
+a:hover{
+	color:#F09;
+}

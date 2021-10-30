@@ -1,6 +1,6 @@
 # Switch Style Sheets by javascript
 
-## sample
+## sample of System config / Lite mode / Dark mode.
 
 1. Method "Cookie".
 

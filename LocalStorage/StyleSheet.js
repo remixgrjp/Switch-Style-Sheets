@@ -1,12 +1,18 @@
-setTheme( loadTheme() );
+const tagStyleDark = document.getElementById( 'styleDark' );
+const tagStyleLite = document.getElementById( 'styleLite' );
+const keySave = 'mode';/* localStorage key */
+
+setTheme( loadStorage() );
 
 function setThemeLite(){
-	document.getElementById( 'styleDark' ).disabled = true;
-	document.getElementById( 'styleLite' ).disabled = false;
+	tagStyleDark.disabled = true;
+	tagStyleLite.disabled = false;
+	saveStorage( 1 );
 }
 function setThemeDark(){
-	document.getElementById( 'styleLite' ).disabled = true;
-	document.getElementById( 'styleDark' ).disabled = false;
+	tagStyleLite.disabled = true;
+	tagStyleDark.disabled = false;
+	saveStorage( 2 );
 }
 function setThemeSystem(){
 	if( matchMedia( '(prefers-color-scheme: dark)' ).matches ){
@@ -14,32 +20,30 @@ function setThemeSystem(){
 	} else {
 		setThemeLite();
 	}
+	saveStorage( 0 );
 }
 
-function saveTheme( i ){
+function saveStorage( i ){
 	localStorage.mode = i;
 }
 
-function loadTheme(){
+function loadStorage(){
 	return +localStorage.mode;//''->NaN->0
 }
 
-function deleteTheme(){
-	localStorage.removeItem('mode');
+function deleteStorage(){
+	localStorage.removeItem( keySave );
 }
 
 function setTheme( i ){
 	switch( i ){
 	  case 2:
 		setThemeDark();
-		saveTheme( 2 );
 		break;
 	  case 1:
 		setThemeLite();
-		saveTheme( 1 );
 		break;
 	  default:
 		setThemeSystem();
-		deleteTheme();
 	}
 }

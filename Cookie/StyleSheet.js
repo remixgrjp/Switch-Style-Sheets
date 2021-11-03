@@ -1,12 +1,15 @@
-setTheme( loadTheme() );
+const tagStyleDark = document.getElementById( 'styleDark' );
+const tagStyleLite = document.getElementById( 'styleLite' );
+
+setTheme( loadCookie() );
 
 function setThemeLite(){
-	document.getElementById( 'styleDark' ).disabled = true;
-	document.getElementById( 'styleLite' ).disabled = false;
+	tagStyleDark.disabled = true;
+	tagStyleLite.disabled = false;
 }
 function setThemeDark(){
-	document.getElementById( 'styleLite' ).disabled = true;
-	document.getElementById( 'styleDark' ).disabled = false;
+	tagStyleLite.disabled = true;
+	tagStyleDark.disabled = false;
 }
 function setThemeSystem(){
 	if( matchMedia( '(prefers-color-scheme: dark)' ).matches ){
@@ -16,18 +19,18 @@ function setThemeSystem(){
 	}
 }
 
-function saveTheme( i ){
+function saveCookie( i ){
 	var expire = new Date();
 	expire.setTime( expire.getTime() + 1000 * 3600 * 24 * 365 );
 	document.cookie = "myTheme=" + i + '; expires=' + expire.toUTCString();
 }
 
-function loadTheme(){
+function loadCookie(){
 	var s = document.cookie.replace(/(?:(?:^|.*;s*)myTheme*=s*([^;]*).*$)|^.*$/, "$1");
 	return +s;//''->NaN->0
 }
 
-function deleteTheme(){
+function deleteCookie(){
 	document.cookie = "myTheme=; expires=0";
 }
 
@@ -35,14 +38,14 @@ function setTheme( i ){
 	switch( i ){
 	  case 2:
 		setThemeDark();
-		saveTheme( 2 );
+		saveCookie( 2 );
 		break;
 	  case 1:
 		setThemeLite();
-		saveTheme( 1 );
+		saveCookie( 1 );
 		break;
 	  default:
 		setThemeSystem();
-		deleteTheme();
+		deleteCookie();
 	}
 }

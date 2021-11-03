@@ -1,16 +1,31 @@
-const keyImg = 'myImg';/* image tag id */
+const tagStyleDark = document.getElementById( 'styleDark' );
+const tagStyleLite = document.getElementById( 'styleLite' );
+const tagBtn = document.getElementById( 'tagBtn' );/* Buttun tag */
+const tagImg = document.getElementById( 'tagImg' );/* image tag */
 const arrayImg = new Array( "./conf.png","./lite.png","./dark.png" );
 const keySave = 'mode';/* localStorage key */
 
-setTheme( loadTheme() );
+setTheme( loadStorage() );
 
+function saveStorage( i ){
+	localStorage.setItem( keySave, i );
+	tagImg.src=arrayImg[i];
+}
+function loadStorage(){
+	return +localStorage.getItem( keySave );//''->NaN->0
+}
+function deleteStorage(){
+	localStorage.removeItem( keySave );
+}
 function setThemeLite(){
-	document.getElementById( 'styleDark' ).disabled = true;
-	document.getElementById( 'styleLite' ).disabled = false;
+	tagStyleDark.disabled = true;
+	tagStyleLite.disabled = false;
+	saveStorage( 1 );
 }
 function setThemeDark(){
-	document.getElementById( 'styleLite' ).disabled = true;
-	document.getElementById( 'styleDark' ).disabled = false;
+	tagStyleLite.disabled = true;
+	tagStyleDark.disabled = false;
+	saveStorage( 2 );
 }
 function setThemeSystem(){
 	if( matchMedia( '(prefers-color-scheme: dark)' ).matches ){
@@ -18,17 +33,7 @@ function setThemeSystem(){
 	} else {
 		setThemeLite();
 	}
-}
-function saveTheme( i ){
-	localStorage.setItem( keySave, i );
-	document.getElementById( keyImg ).src=arrayImg[i];
-}
-function loadTheme(){
-	return +localStorage.getItem( keySave );//''->NaN->0
-}
-/** Delete localStorage */
-function deleteTheme(){
-	localStorage.removeItem( keySave );
+	saveStorage( 0 );
 }
 
 /** Theme 2:Dark, 1:Lite, -:System Config */
@@ -36,23 +41,23 @@ function setTheme( i ){
 	switch( i ){
 	  case 2:
 		setThemeDark();
-		saveTheme( 2 );
 		break;
 	  case 1:
 		setThemeLite();
-		saveTheme( 1 );
 		break;
 	  default:
 		setThemeSystem();
-		saveTheme( 0 );
 	}
 }
-
 /** Theme 2 -> 1 -> 0 -> 2... */
-function switchTheme(){
-	var i = loadTheme();
+tagImg.onclick = function(){
+	var i = loadStorage();
 	if( 0 >= i ){
 		i = arrayImg.length;
 	}
 	setTheme( --i );
-}
+};
+/** Delete localStorage */
+tagBtn.onclick = function(){
+	deleteStorage();
+};

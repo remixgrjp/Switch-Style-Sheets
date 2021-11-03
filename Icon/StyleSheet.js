@@ -1,5 +1,5 @@
-const tagStyleDark = document.getElementById( 'styleDark' );
-const tagStyleLite = document.getElementById( 'styleLite' );
+const tagStyleL = document.getElementById( 'tagStyleL' );
+const tagStyleD = document.getElementById( 'tagStyleD' );
 const tagBtn = document.getElementById( 'tagBtn' );/* Buttun tag */
 const tagImg = document.getElementById( 'tagImg' );/* image tag */
 const arrayImg = new Array( "./conf.png","./light.png","./dark.png" );
@@ -18,13 +18,13 @@ function deleteStorage(){
 	localStorage.removeItem( keySave );
 }
 function setThemeLite(){
-	tagStyleDark.disabled = true;
-	tagStyleLite.disabled = false;
+	tagStyleD.disabled = true;
+	tagStyleL.disabled = false;
 	saveStorage( 1 );
 }
 function setThemeDark(){
-	tagStyleLite.disabled = true;
-	tagStyleDark.disabled = false;
+	tagStyleL.disabled = true;
+	tagStyleD.disabled = false;
 	saveStorage( 2 );
 }
 function setThemeSystem(){

@@ -2,7 +2,7 @@ const tagStyleDark = document.getElementById( 'styleDark' );
 const tagStyleLite = document.getElementById( 'styleLite' );
 const tagBtn = document.getElementById( 'tagBtn' );/* Buttun tag */
 const tagImg = document.getElementById( 'tagImg' );/* image tag */
-const arrayImg = new Array( "./conf.png","./lite.png","./dark.png" );
+const arrayImg = new Array( "./conf.png","./light.png","./dark.png" );
 const keySave = 'mode';/* localStorage key */
 
 setTheme( loadStorage() );

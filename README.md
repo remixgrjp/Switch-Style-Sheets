@@ -10,7 +10,7 @@ http://remix.asia/dat/blog/SwitchStyle/Cookie/index.html
 
 http://remix.asia/dat/blog/SwitchStyle/LocalStorage/index.html
 
-3. <img src="https://raw.githubusercontent.com/remixgrjp/Switch-Style-Sheets/main/Icon/conf.png"> &gt; <img src="https://raw.githubusercontent.com/remixgrjp/Switch-Style-Sheets/main/Icon/dark.png"> &gt; <img src="https://raw.githubusercontent.com/remixgrjp/Switch-Style-Sheets/main/Icon/lite.png">
+3. <img src="https://raw.githubusercontent.com/remixgrjp/Switch-Style-Sheets/main/Icon/conf.png"> &gt; <img src="https://raw.githubusercontent.com/remixgrjp/Switch-Style-Sheets/main/Icon/dark.png"> &gt; <img src="https://raw.githubusercontent.com/remixgrjp/Switch-Style-Sheets/main/Icon/light.png">
 
 http://remix.asia/dat/blog/SwitchStyle/Icon/index.html
 

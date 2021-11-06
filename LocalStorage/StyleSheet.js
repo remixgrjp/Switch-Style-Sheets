@@ -1,17 +1,17 @@
-const tagStyleDark = document.getElementById( 'styleDark' );
-const tagStyleLite = document.getElementById( 'styleLite' );
+const tagStyleD = document.getElementById( 'tagStyleD' );
+const tagStyleL = document.getElementById( 'tagStyleL' );
 const keySave = 'mode';/* localStorage key */
 
 setTheme( loadStorage() );
 
 function setThemeLite(){
-	tagStyleDark.disabled = true;
-	tagStyleLite.disabled = false;
+	tagStyleD.disabled = true;
+	tagStyleL.disabled = false;
 	saveStorage( 1 );
 }
 function setThemeDark(){
-	tagStyleLite.disabled = true;
-	tagStyleDark.disabled = false;
+	tagStyleL.disabled = true;
+	tagStyleD.disabled = false;
 	saveStorage( 2 );
 }
 function setThemeSystem(){

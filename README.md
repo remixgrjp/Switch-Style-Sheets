@@ -22,4 +22,4 @@ Firefox 93.0 (64 bit)
 Microsoft Edge 95.0.1020.30 (64 bit)
 
 ## article
-http://remix.asia/blog/remix/2021/12/style_sheets_javascript.html
+http://remix.asia/blog/remix/2020/12/style_sheets_javascript.html
